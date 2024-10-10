@@ -16,4 +16,4 @@ MindMend is designed to address the negative effects of social media on mental h
 
 Here’s a quick demonstration of the platform's prototype in action:
 
-![Prototype Demo](<INSERT_LINK_HERE>)
+![HighFidelityPrototype--Recording2024-10-10121712-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/14b5db5d-ed7d-4519-a407-565427020388)
