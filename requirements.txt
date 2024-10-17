@@ -1,0 +1,6 @@
+fastapi
+motor
+pydantic
+jose
+passlib
+python-multipart
