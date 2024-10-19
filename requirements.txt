@@ -5,3 +5,4 @@ jose
 passlib
 python-multipart
 python-dotenv
+python-jose[cryptography]
