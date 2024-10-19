@@ -3,6 +3,8 @@ from fastapi import APIRouter, Depends
 from app.auth.jwt_handler import get_current_user
 from app.communities.models import CommunityPost
 from motor.motor_asyncio import AsyncIOMotorClient
+from bson import ObjectId
+import os
 
 community_router = APIRouter()
 
@@ -11,7 +13,15 @@ db = client.mindmend
 
 @community_router.get("/")
 async def get_communities():
-    communities = await db.communities.find().to_list(100)
+    query = {}
+
+    if type_of_mental_issue:
+        query["type_of_mental_issue"] = type_of_mental_issue
+
+    if min_size:
+        query["size"] = {"$gte": min_size}
+
+    communities = await db.communities.find(query).to_list(100)
     return communities
 
 @community_router.post("/")
