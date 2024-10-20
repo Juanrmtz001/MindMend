@@ -5,6 +5,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
+from app.auth.models import User  # Import your User model (ensure you have a model to retrieve user data)
 
 # JWT Secret key (ensure this is kept secret, e.g., using an environment variable)
 SECRET_KEY = "your_secret_key"
@@ -42,10 +43,10 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
 def verify_token(token: str, credentials_exception):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("sub")
-        if username is None:
+        user_id: str = payload.get("sub")  # Assuming the user ID is in 'sub'
+        if user_id is None:
             raise credentials_exception
-        return username
+        return user_id  # Return the user_id for further querying
     except JWTError:
         raise credentials_exception
 
@@ -57,4 +58,13 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         detail="Could not validate credentials",
         headers={"WWW-Authenticate": "Bearer"},
     )
-    return verify_token(token, credentials_exception)
+    
+    # Verify the token and retrieve the user ID
+    user_id = verify_token(token, credentials_exception)
+
+    # Fetch the user from the database using the user_id
+    user = await User.get(user_id)  # Assuming you have a method to get the user
+    if user is None:
+        raise credentials_exception
+    
+    return user  # Return the full user object

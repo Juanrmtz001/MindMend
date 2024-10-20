@@ -1,4 +1,5 @@
 # app/professional_access/routes.py
+import os
 from fastapi import APIRouter, Depends
 from app.auth.jwt_handler import get_current_user
 from motor.motor_asyncio import AsyncIOMotorClient

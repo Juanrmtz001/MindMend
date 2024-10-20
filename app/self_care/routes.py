@@ -1,4 +1,5 @@
 # app/self_care/routes.py
+import os
 from fastapi import APIRouter
 from app.self_care.models import SelfCareTool
 from motor.motor_asyncio import AsyncIOMotorClient
