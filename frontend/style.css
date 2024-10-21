@@ -1,11 +1,95 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* This is for the MindMendHome.html CSS */
+/* Reset basic margins and padding */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    box-sizing: border-box;
 }
 
-h1 {
-    color: #4CAF50;
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2821C1, #7D53FE);
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-container {
+    padding-left: 20px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.navigation {
+    padding-right: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.content {
+    max-width: 50%;
+}
+
+.main-title {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-logo {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
 }
