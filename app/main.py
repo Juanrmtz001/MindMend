@@ -6,6 +6,7 @@ from app.emotion_tracking.routes import emotion_router
 from app.communities.routes import community_router
 from app.professional_access.routes import professional_router
 from app.self_care.routes import self_care_router
+import os
 
 app = FastAPI()
 
@@ -20,11 +21,12 @@ app.include_router(professional_router, prefix="/professional-access")
 app.include_router(self_care_router, prefix="/self-care-tools")
 
 # Serve the index.html on the home route
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def home():
-    return {
-        "message": "Welcome to the MindMend backend! Visit /static/index.html for the front-end."
-    }
+    # Adjust the path to go one folder back and serve index.html
+    index_path = os.path.join(os.path.dirname(__file__), "..", "index.html")
+    with open(index_path) as f:
+        return f.read()
 
 # Serve the communities page
 @app.get("/communities", response_class=HTMLResponse)

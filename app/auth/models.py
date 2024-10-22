@@ -4,7 +4,6 @@ from bson import ObjectId
 
 # Define the User schema (input for sign-up)
 class User(BaseModel):
-    id: str = None  # Adding an ID field for the user
     username: str
     password: str  # This will be hashed when saved in the database
     name: str
