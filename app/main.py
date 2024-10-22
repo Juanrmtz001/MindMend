@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 from app.auth.routes import auth_router
 from app.emotion_tracking.routes import emotion_router
 from app.communities.routes import community_router
@@ -24,3 +25,9 @@ async def home():
     return {
         "message": "Welcome to the MindMend backend! Visit /static/index.html for the front-end."
     }
+
+# Serve the communities page
+@app.get("/communities", response_class=HTMLResponse)
+async def get_communities_page():
+    with open("frontend/communities.html") as f:
+        return f.read()

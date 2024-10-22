@@ -1,32 +1,30 @@
 # app/communities/routes.py
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends
 from app.auth.jwt_handler import get_current_user
 from app.communities.models import CommunityPost
-from motor.motor_asyncio import AsyncIOMotorClient
-from bson import ObjectId
-import os
+from app.db import db
+# from motor.motor_asyncio import AsyncIOMotorClient
+# from bson import ObjectId
+# import os
 
 community_router = APIRouter()
 
-client = AsyncIOMotorClient(os.getenv("MONGODB_URI"))
-db = client.mindmend
+# client = AsyncIOMotorClient(os.getenv("MONGODB_URI"))
+# db = client.mindmend
 
 # Get communities route
 @community_router.get("/")
-async def get_communities(
-    type_of_mental_issue: str = Query(None),  # Optional query parameter
-    min_size: int = Query(None)  # Optional query parameter
-):
-    query = {}
+async def get_communities():
+    # print("Fetching communities...")  # Debug log
+    cursor = db.communities.find()
+    communities = cursor.to_list(100)
 
-    if type_of_mental_issue:
-        query["type_of_mental_issue"] = type_of_mental_issue
-
-    if min_size:
-        query["size"] = {"$gte": min_size}
-
-    # Retrieve communities based on query
-    communities = await db.communities.find(query).to_list(100)
+    # Convert ObjectId to string for better readability
+    communities = [
+        {**community, "_id": str(community["_id"])} for community in communities
+    ]
+    
+    print(f"Communities found: {communities}")  # Log the communities fetched
     return communities
 
 # Post in a community route

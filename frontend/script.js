@@ -73,3 +73,44 @@ document.getElementById('logout-button')?.addEventListener('click', function() {
     localStorage.removeItem('token');  // Remove token on logout
     window.location.href = '/static/index.html';  // Redirect to the non-logged-in home page
 });
+
+
+// For Communities Page
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const response = await fetch("/communities/");
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const communities = await response.json();
+        console.log(communities); // Log the communities for debugging
+
+        // HTML for communities.html
+        const container = document.getElementById("communities-container");
+        communities.forEach(community => {
+            const communityCard = document.createElement("div");
+            communityCard.classList.add("community-card");
+
+            communityCard.innerHTML = `
+                <img src="${community.image_url}" alt="${community.name}" />
+                <h2>${community.name}</h2>
+                <p>${community.description}</p>
+                <p>Members: ${community.members_count}</p>
+                <button onclick="joinCommunity('${community._id}')">Join</button>
+            `;
+
+            container.appendChild(communityCard);
+        });
+    } catch (error) {
+        console.error('Error fetching communities:', error);
+    }
+});
+
+
+// Example joinCommunity function
+function joinCommunity(communityId) {
+    // Logic to join the community
+    alert(`Joining community with ID: ${communityId}`);
+}

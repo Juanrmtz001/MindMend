@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import Optional, List
 from bson import ObjectId
 
+
 # Helper class to allow ObjectId in Pydantic models
 class PyObjectId(ObjectId):
     @classmethod
@@ -10,7 +11,7 @@ class PyObjectId(ObjectId):
         yield cls.validate
 
     @classmethod
-    def validate(cls, v):
+    def validate(cls, v, field=None):
         if not ObjectId.is_valid(v):
             raise ValueError("Invalid ObjectId")
         return ObjectId(v)
@@ -24,10 +25,11 @@ class PyObjectId(ObjectId):
 
 # Model for Community
 class Community(BaseModel):
-    id: Optional[PyObjectId] = Field(alias="_id")  # Use _id for MongoDB compatibility
+    # id: Optional[PyObjectId] = Field(alias="_id")  # Use _id for MongoDB compatibility
     name: str
     description: str
-    num_of_members: int
+    members_count: int
+    image_url: str = None
     type_of_mental_issue: List[str]
 
     class Config:
