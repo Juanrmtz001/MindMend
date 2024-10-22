@@ -8,3 +8,5 @@ python-dotenv
 python-jose[cryptography]
 pydantic[email]
 bcrypt
+pymongo
+dnspython
