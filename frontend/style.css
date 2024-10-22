@@ -257,3 +257,152 @@ input[type="password"] {
     color: #fff;
     text-decoration: underline;
 }
+
+/* Log In */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2A005F, #5C00B5, #9A00E6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.left-section {
+    background-color: #3A006E;
+    color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.left-section .logo {
+    width: 250px; /* Increased size */
+    height: 250px; /* Increased size */
+    margin-bottom: 20px;
+}
+
+.left-section h1 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.right-section {
+    background-color: #fff;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-box {
+    max-width: 400px;
+    width: 100%;
+    text-align: center; /* Center the text inside the box */
+}
+
+.login-box h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center; /* Center the Log In title */
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    margin-right: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.actions button {
+    background-color: #5C00B5;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.remember-forgot input {
+    margin-right: 10px;
+}
+
+.forgot-password {
+    color: #5C00B5;
+    text-decoration: none;
+}
+
+.continue-with {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.continue-with p {
+    margin-bottom: 10px;
+}
+
+.continue-with button {
+    background-color: #e6e6e6;
+    border: none;
+    padding: 10px;
+    width: 45%;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-text {
+    text-align: center;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: #5C00B5;
+    text-decoration: none;
+}
+
