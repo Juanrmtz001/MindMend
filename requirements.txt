@@ -10,3 +10,4 @@ pydantic[email]
 bcrypt
 pymongo
 dnspython
+uvicorn
