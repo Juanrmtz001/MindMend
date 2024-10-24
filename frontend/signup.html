@@ -3,47 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MindMend - Sign Up</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MindMend Sign Up</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Link to your existing CSS -->
 </head>
 <body>
     <div class="container">
-        <!-- Left Section -->
         <div class="left-section">
             <img src="/static/images/logo.webp" alt="MindMend Logo" class="logo">
-            <h2 class="left-title">Sign up to MindMend!</h2>
+            <h1>Create your MindMend Account</h1>
         </div>
-
-        <!-- Right Section -->
         <div class="right-section">
-            <h1 class="signup-title">Sign Up</h1>
-            <p class="signup-subtitle">Sign up with email address</p>
-
-            <form class="signup-form">
-                <div class="input-group">
-                    <label for="email"><img src="Email.png" alt="Email Icon"></label>
-                    <input type="email" id="email" placeholder="Yourname@gmail.com" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="password"><img src="password.jpg" alt="Password Icon"></label>
-                    <input type="password" id="password" placeholder="Password" required>
-                </div>
-
-                <button type="submit" class="signup-button">Sign up</button>
-            </form>
-
-            <p class="or-text">Or continue with</p>
-
-            <div class="social-buttons">
-                <button class="google-button">Google</button>
-                <button class="facebook-button">Facebook</button>
+            <div class="signup-box">
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <div class="input-group">
+                        <label for="name"><i class="fas fa-user"></i></label>
+                        <input type="text" id="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="username"><i class="fas fa-user-tag"></i></label>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email"><i class="fas fa-envelope"></i></label>
+                        <input type="email" id="email" placeholder="Yourname@gmail.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password"><i class="fas fa-lock"></i></label>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <div class="actions">
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <p class="login-text">Already have an account? <a href="/static/login.html">Log In</a></p>
             </div>
-
-            <p class="terms">By registering you agree with our <a href="#">Terms and Conditions</a></p>
-            <p class="login-text">Already have an account? <a href="login.html">Log in</a></p><!-- Link to log in page -->
         </div>
     </div>
+    <script src="/static/script.js"></script> <!-- Link to your script file -->
 </body>
 </html>

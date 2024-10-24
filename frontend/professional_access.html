@@ -4,29 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Access</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
             <div class="logo">
-                <img src="/static/images/logo.webp" alt="MindMend Logo">
+                <img src="/static/images/MindMendLogo.png" alt="MindMend Logo">
             </div>
             <ul class="nav-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Mood</a></li>
-                <li><a href="#">Professional</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Communities</a></li>
-                <li><a href="#">Folders</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Backup</a></li>
+                <li><a href="home_logged_in.html">Home</a></li>  <!-- Link to the home page -->
+                <li><a href="log_emotions.html">Mood</a></li>  <!-- Link to the Mood page -->
+                <li><a href="professional_access.html">Professional</a></li>  <!-- Current page -->
+                <li><a href="messages.html">Messages</a></li>  <!-- Link to Messages page -->
+                <li><a href="communities.html">Communities</a></li>  <!-- Link to Communities page -->
+                <li><a href="folders.html">Folders</a></li>  <!-- Link to Folders page -->
+                <li><a href="settings.html">Settings</a></li>  <!-- Link to Settings page -->
+                <li><a href="backup.html">Backup</a></li>  <!-- Link to Backup page -->
             </ul>
         </nav>
 
         <!-- Main Content -->
         <main class="content">
+            <!-- Search Bar -->
+            <section class="search-bar">
+                <input type="text" placeholder="Search..." class="search-input">
+            </section>
+
             <!-- Self Care Strategies Section -->
             <section class="self-care">
                 <h2>Self Care Strategies</h2>
@@ -38,18 +43,14 @@
             <section class="hotline">
                 <h3>Suicide Hot-line:</h3>
                 <div class="hotline-contact">
-                    <div class="icon">
-                        <img src="phone-icon.png" alt="Phone Icon">
-                    </div>
+                    <img src="/static/images/SH1.png" alt="Phone Icon">
                     <div class="details">
                         <p>Hotline Contact 1</p>
                         <p>Supporting text...</p>
                     </div>
                 </div>
                 <div class="hotline-contact">
-                    <div class="icon">
-                        <img src="phone-icon.png" alt="Phone Icon">
-                    </div>
+                    <img src="/static/images/SH2.png" alt="Phone Icon">
                     <div class="details">
                         <p>Hotline Contact 2</p>
                         <p>Supporting text...</p>
@@ -60,33 +61,36 @@
             <!-- Professional Section -->
             <section class="professional-contacts">
                 <h3>Professional Contacts</h3>
-                <div class="contact">
-                    <img src="profile-placeholder.png" alt="Jane Doe Profile">
+                <div class="contact-card">
+                    <img src="/static/images/Headshot2.png" alt="Jane Doe Profile" class="profile-pic">
                     <div class="contact-info">
-                        <p>Jane Doe</p>
-                        <p>Category: $$ - 1.1 miles away</p>
+                        <p class="contact-name">Jane Doe</p>
+                        <p class="contact-category">$$ - 1.1 miles away</p>
                         <p>Supporting text...</p>
                     </div>
                     <div class="rating">
-                        <p>⭐⭐⭐⭐⭐</p>
+                        ⭐⭐⭐⭐⭐
                     </div>
                 </div>
-                <div class="contact">
-                    <img src="profile-placeholder.png" alt="John Smith Profile">
+                <div class="contact-card">
+                    <img src="/static/images/Not-Available.png" alt="John Smith Profile" class="profile-pic">
                     <div class="contact-info">
-                        <p>John Smith</p>
-                        <p>Category: $$ - 1.3 miles away</p>
+                        <p class="contact-name">John Smith</p>
+                        <p class="contact-category">$$ - 1.3 miles away</p>
                         <p>Supporting text...</p>
                     </div>
                     <div class="rating">
-                        <p>⭐⭐⭐⭐</p>
+                        ⭐⭐⭐⭐
                     </div>
                 </div>
             </section>
         </main>
     </div>
-
-    <script src="/static/script.js"></script>
 </body>
 </html>
+
+
+
+
+
 
