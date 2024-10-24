@@ -23,10 +23,11 @@ class PyObjectId(ObjectId):
 
 # Model for logging emotions
 class EmotionLog(BaseModel):
-    date: datetime = Field(default_factory=datetime.utcnow)  # Default to current time
+    user_id: str  # User ID will be passed explicitly
     mood: int = Field(..., ge=1, le=10)  # Mood should be between 1 and 10
     stress: int = Field(..., ge=1, le=10)  # Stress should be between 1 and 10
-
+    date: datetime = Field(default_factory=datetime.utcnow)  # Default to current time
+    user_name: str  # Add user name field
 
     class Config:
         json_encoders = {ObjectId: str}  # Convert ObjectId to string in JSON responses

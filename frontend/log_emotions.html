@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log Emotions</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Log Your Emotions</h1>
-    <form id="emotion-form">
+    <form id="emotion-form" >
         <label for="mood">Mood (1-10):</label>
-        <input type="number" id="mood" min="1" max="10" required><br>
+        <input type="number" id="mood" name="mood"  min="1" max="10" required><br>
         <label for="stress">Stress (1-10):</label>
-        <input type="number" id="stress" min="1" max="10" required><br>
+        <input type="number" id="stress" name="stress" min="1" max="10" required><br>
         <button type="submit">Log Emotion</button>
     </form>
 
-    <script src="/static/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

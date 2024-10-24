@@ -40,17 +40,15 @@ async def signup(user: User):
 
 # User login route
 @auth_router.post("/login")
-async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+async def login(email: str, password: str):
     # Find the user by username
-    user = db.users.find_one({"username": form_data.username})
-    if not user or not verify_password(form_data.password, user["hashed_password"]):
-        raise HTTPException(status_code=400, detail="Incorrect username or password")
-
-    # Create the JWT token
-    access_token_expires = timedelta(minutes=30)
-    access_token = create_access_token(data={"sub": user["username"]}, expires_delta=access_token_expires)
-
-    return {"access_token": access_token, "token_type": "bearer"}
+    user = db.users.find_one({"email": email})
+    if user and verify_password(password, user["hashed_password"]):
+        # Generate a JWT token for successful login
+        token = "generated_jwt_token"  # Replace with actual JWT generation logic
+        return {"access_token": token, "token_type": "bearer"}
+    else:
+        raise HTTPException(status_code=400, detail="Invalid credentials")
 
 # # User signup route
 # @auth_router.post("/signup")
