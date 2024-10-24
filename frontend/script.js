@@ -168,19 +168,17 @@ document.getElementById('emotion-form')?.addEventListener('submit', async functi
     const mood = document.getElementById('mood').value;
     const stress = document.getElementById('stress').value;
 
-    // Create an object with the collected data
     const emotionData = {
-        mood_level: parseInt(mood),  // Convert to integer
-        stress_level: parseInt(stress)  // Convert to integer
+        mood_level: parseInt(mood),
+        stress_level: parseInt(stress)
     };
-
+    
     try {
-        // Send log emotion request to the backend
-        const response = await fetch('/emotion-tracking', {
+        const response = await fetch('/emotion-tracking/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`  // Include JWT token
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(emotionData)
         });
