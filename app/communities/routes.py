@@ -24,7 +24,7 @@ async def get_communities():
         {**community, "_id": str(community["_id"])} for community in communities
     ]
     
-    print(f"Communities found: {communities}")  # Log the communities fetched
+    # print(f"Communities found: {communities}")  # Log the communities fetched
     return communities
 
 # Post in a community route
