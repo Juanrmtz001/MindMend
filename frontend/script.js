@@ -42,68 +42,38 @@ document.getElementById('signup-form')?.addEventListener('submit', async functio
 });
 
 
-// Log In Form Handler
+
 document.getElementById('login-form')?.addEventListener('submit', async function(event) {
-    event.preventDefault();  // Prevent the default form submission behavior
+    event.preventDefault();
     
-    // Collect form data
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     
-    // Send login request to the backend
-    const response = await fetch('/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },  // Use URL-encoded format for login
-        body: new URLSearchParams({ email, password })
-    });
-
-    if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.access_token);  // Save the token in localStorage
-
-        alert('Login successful!');
-        window.location.href = '/static/home_logged_in.html';  // Redirect to the logged-in home page
-    } else {
-        alert('Login failed. Please check your credentials and try again.');
+    try {
+        const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                username: email,  // OAuth2 expects 'username' field
+                password: password
+            })
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            localStorage.setItem('token', data.access_token);
+            window.location.href = '/static/home_logged_in.html';
+        } else {
+            const errorData = await response.json();
+            alert(errorData.detail || 'Login failed. Please check your credentials.');
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        alert('An error occurred during login. Please try again.');
     }
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const loginButton = document.getElementById('login-button');  // Target by button id
-    
-//     if (loginButton) {
-//         loginButton.addEventListener('click', async function(event) {
-//             event.preventDefault();  // Prevent the form from submitting the old way
-//             console.log('Login button clicked');  // Debugging message to verify click
-
-//             const email = document.getElementById('email').value;
-//             const password = document.getElementById('password').value;
-
-//             // Send login request to backend
-//             try {
-//                 const response = await fetch('/auth/login', {
-//                     method: 'POST',
-//                     headers: { 'Content-Type': 'application/json' },
-//                     body: JSON.stringify({ email, password })  // Include form data in request
-//                 });
-
-//                 if (response.ok) {
-//                     const data = await response.json();
-//                     localStorage.setItem('token', data.access_token);  // Save token
-//                     alert('Login successful!');
-//                     window.location.href = '/static/home_logged_in.html';  // Redirect to logged-in page
-//                 } else {
-//                     alert('Login failed. Please check your credentials.');
-//                 }
-//             } catch (error) {
-//                 console.error('Error during login:', error);
-//             }
-//         });
-//     } else {
-//         console.error('Login button not found');
-//     }
-// });
-
 
 
 // Log Out Button Handler
@@ -148,8 +118,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 });
-
-
 
 
 // Example joinCommunity function
