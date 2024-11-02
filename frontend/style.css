@@ -428,16 +428,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: opacity 0.3s ease;
 }
 
 .sidebar .logo img {
     width: 150px;  
     margin-bottom: 20px;
+    border-radius: 10%;
 }
 
 .nav-menu {
     list-style: none;
     padding: 0;
+}
+
+.nav-menu li:hover {
+    opacity: 0.7;
 }
 
 .nav-menu li {
@@ -630,6 +636,11 @@ body {
 
 .container {
     display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 5px;
 }
 
 /* Sidebar styles */
@@ -644,6 +655,7 @@ body {
 .sidebar .logo {
     width: 150px;
     margin-bottom: 40px;
+    border-radius: 10%;
 }
 
 .sidebar ul {
@@ -669,6 +681,12 @@ body {
 .main-content {
     padding: 20px;
     flex-grow: 1;
+    color: #5C00B5;
+}
+
+.main-content h1{
+    font-size: 50pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 header {
@@ -798,4 +816,52 @@ header input {
 
 .community-card button:hover {
     background-color: #5040FE;
+}
+
+.column {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.column h2 {
+    padding-bottom: 10px;
+}
+
+.article-preview {
+    margin-bottom: 40px;
+}
+
+.article-preview h3 {
+    color: #3498db;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.article-preview p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.date {
+    color: #95a5a6;
+    font-size: 0.8rem;
+}
+
+input[type="text"] {
+    padding: 5px;
 }

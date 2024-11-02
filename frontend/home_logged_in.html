@@ -1,44 +1,22 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindMend - Home</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <h1>Welcome, [User]!</h1>
-    <ul>
-        <li><a href="/static/log_emotions.html">Log Emotions</a></li>
-        <li><a href="/static/communities.html">Visit Communities</a></li>
-        <li><a href="/static/professional_access.html">Professional Access</a></li>
-        <li><a href="/static/self_care.html">Self-Care Techniques</a></li>
-    </ul>
-    <button id="logout-button">Log Out</button>
-
-    <script src="/static/script.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat UI</title>
+    <title>MindMend</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
             <div class="logo">
+                <a href="home_logged_in.html">
                 <img src="/static/images/logo.webp" alt="Logo">
-                <h2>MetaBrand</h2>
+                </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="home_logged_in.html">Home</a></li>
-                <li><a href="mood.html">Mood</a></li>
-                <li><a href="professional_access.html">Professional</a></li>
+                <li><a href="log_emotions.html">Log Emotions</a></li>
+                <li><a href="professional_access.html">Self-Care & Professional Access</a></li>
                 <li><a href="messages.html">Messages</a></li>
                 <li><a href="communities.html">Communities</a></li>
                 <li><a href="settings.html">Settings</a></li>
@@ -47,57 +25,90 @@
 
         <div class="main-content">
             <div class="welcome">
-                <h1>Welcome User!</h1>
+                <h1>Welcome to MindMend</h1>
                 <input type="text" placeholder="Search your query">
             </div>
 
-            <div class="chat-area">
-                <div class="groups">
-                    <h3>Groups</h3>
-                    <div class="group-list">
-                        <p>Group 1 <span>Today, 9:52pm</span></p>
-                        <p>Group 2 <span>Yesterday, 12:31pm</span></p>
-                        <p>Group 3 <span>Wednesday, 9:12am</span></p>
+            <div class="container">
+                <!-- Burn Out Column -->
+                <div class="column">
+                    <h2>Burn Out</h2>
+                    <div class="article-preview">
+                        <h3><a href="#">Understanding Workplace Burnout: Signs and Solutions</a></h3>
+                        <p>Learn to identify early warning signs of burnout and discover effective coping strategies.</p>
+                        <span class="date">October 28, 2024</span>
+                    </div>
+                    <div class="article-preview">
+                        <h3><a href="#">Digital Burnout in the Remote Work Era</a></h3>
+                        <p>How to maintain work-life balance in an increasingly connected world.</p>
+                        <span class="date">October 25, 2024</span>
+                    </div>
+                    <div class="article-preview">
+                        <h3><a href="#">Academic Burnout: A Student's Guide to Recovery</a></h3>
+                        <p>Essential tips for students dealing with academic stress and exhaustion.</p>
+                        <span class="date">October 22, 2024</span>
+                    </div>
+                    <div class="article-preview">
+                        <h3><a href="#">Parental Burnout: Finding Your Balance</a></h3>
+                        <p>Practical strategies for parents feeling overwhelmed and exhausted.</p>
+                        <span class="date">October 20, 2024</span>
                     </div>
                 </div>
-
-                <div class="professionals">
-                    <h3>Professionals</h3>
-                    <div class="pro-list">
-                        <p>Dr. Pro <span>Today, 9:52pm</span></p>
-                        <p>Chuuthiya <span>Today, 12:11pm</span></p>
-                        <p>Mary Ma'am <span>Today, 2:40pm</span></p>
-                        <p>Bill Gates <span>Yesterday, 12:31pm</span></p>
-                        <p>Victoria H <span>Wednesday, 11:12am</span></p>
+        
+                <!-- Mental Health Column -->
+                <div class="column">
+                    <h2>Mental Health</h2>
+                    <div class="article-preview">
+                        <h3><a href="#">Relaxing Illustrations: Art Therapy at Home</a></h3>
+                        <p>Explore how simple drawing exercises can help calm your mind.</p>
+                        <span class="date">October 29, 2024</span>
+                    </div>
+                    <div class="article-preview">
+                        <h3><a href="#">Declutter to Relieve Stress</a></h3>
+                        <p>How organizing your space can lead to better mental clarity.</p>
+                        <span class="date">October 26, 2024</span>
+                    </div>
+                    <div class="article-preview">
+                        <h3><a href="#">Mindfulness Techniques for Beginners</a></h3>
+                        <p>Simple meditation practices you can start today.</p>
+                        <span class="date">October 24, 2024</span>
+                    </div>
+                    <div class="article-preview">
+                        <h3><a href="#">The Power of Daily Journaling</a></h3>
+                        <p>Transform your mental health through written reflection.</p>
+                        <span class="date">October 21, 2024</span>
                     </div>
                 </div>
-
-                <div class="chat-box">
-                    <div class="chat-header">
-                        <img src="user.jpg" alt="User Avatar">
-                        <h3>Dr. Pro</h3>
-                        <span>Online - Last seen, 2:02pm</span>
+        
+                <!-- Stress Column -->
+                <div class="column">
+                    <h2>Stress</h2>
+                    <div class="article-preview">
+                        <h3><a href="#">New Research: Nature Sounds and Stress Relief</a></h3>
+                        <p>Recent studies show significant benefits of natural soundscapes.</p>
+                        <span class="date">October 30, 2024</span>
                     </div>
-
-                    <div class="chat-messages">
-                        <p class="incoming">Hey There!</p>
-                        <p class="incoming">How are you?</p>
-                        <p class="outgoing">Hello!</p>
-                        <p class="outgoing">I am fine and how are you?</p>
-                        <p class="incoming">I am doing well, Do you have any questions?</p>
-                        <p class="outgoing">Yes!</p>
+                    <div class="article-preview">
+                        <h3><a href="#">Breakthrough in Stress Management Technology</a></h3>
+                        <p>Innovative apps and tools for monitoring and reducing stress levels.</p>
+                        <span class="date">October 27, 2024</span>
                     </div>
-
-                    <div class="chat-input">
-                        <input type="text" placeholder="Type your message here...">
-                        <button>Send</button>
+                    <div class="article-preview">
+                        <h3><a href="#">The Science of Breathing Exercises</a></h3>
+                        <p>Latest research on how breathing techniques affect stress response.</p>
+                        <span class="date">October 23, 2024</span>
+                    </div>
+                    <div class="article-preview">
+                        <h3><a href="#">Emerging Trends in Stress Relief</a></h3>
+                        <p>New approaches to managing daily stress and anxiety.</p>
+                        <span class="date">October 19, 2024</span>
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
     <script src="/static/script.js"></script>
 </body>
 </html>
-
-
