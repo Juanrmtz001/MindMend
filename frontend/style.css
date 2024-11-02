@@ -30,10 +30,6 @@ header {
     padding-left: 20px;
 }
 
-.logo {
-    height: 50px;
-}
-
 .navigation {
     padding-right: 20px;
 }
@@ -60,11 +56,14 @@ header {
 
 .content {
     max-width: 50%;
+    background: transparent;
 }
 
 .main-title {
+    font-family: serif;
     font-size: 5rem;
     font-weight: bold;
+    color: whitesmoke;
     margin-bottom: 0.5rem;
 }
 
@@ -76,8 +75,10 @@ header {
 }
 
 .description {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
+    color: whitesmoke;
     max-width: 500px;
 }
 
@@ -102,7 +103,7 @@ header {
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #2821C1, #7D53FE);
-    color: white;
+    /* color: white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,8 +131,9 @@ body {
 }
 
 .logo {
-    width: 200px;
+    width: 100px;
     height: auto;
+    border-radius: 10%;
 }
 
 .left-title {
@@ -452,7 +454,7 @@ body {
 /* Main content styling */
 .content {
     flex: 1;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 50px;  
     overflow-y: auto;
 }
