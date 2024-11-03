@@ -19,3 +19,4 @@ node_modules/
 # Ignore MongoDB dumps and backups
 dump/
 *.log
+.DS_Store
