@@ -8,65 +8,31 @@
 </head>
 <body>
     <div class="container">
-        <aside class="sidebar">
+        <div class="sidebar">
             <div class="logo">
+                <a href="home_logged_in.html">
                 <img src="/static/images/logo.webp" alt="Logo">
+                </a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="home_logged_in.html">Home</a></li>
-                    <li><a href="log_emotions.html">Mood</a></li>
-                    <li><a href="professional_access.html">Professional</a></li>
-                    <li><a href="messages.html">Messages</a></li>
-                    <li><a href="communities.html">Communities</a></li>
-                    <li><a href="settings.html">Settings</a></li>
+            <ul class="nav-menu">
+                <li><a href="log_emotions.html">Log Emotions</a></li>
+                <li><a href="professional_access.html">Self-Care & Professional Access</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="communities.html">Communities</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </div>
 
-                </ul>
-            </nav>
-        </aside>
+        <div class="main-content">
+            <div class="welcome">
+                <h1>Welcome to MindMend</h1>
+                <input type="text" placeholder="Search...">
+            </div>
 
-        <main class="main-content">
-            <header class="header">
-                <h1>Welcome User!</h1>
-                <div class="header-actions">
-                    <button class="filter">Filter</button>
-                    <button class="date">Today</button>
-                    <button class="share">Share</button>
-                    <input type="text" class="search-bar" placeholder="Search your query">
-                    <div class="user-icons">
-                        <img src="user1.png" alt="User Icon">
-                        <img src="user2.png" alt="User Icon">
-                    </div>
-                </div>
-            </header>
 
-            <section class="dashboard-cards">
-                <div class="card">
-                    <h2>Burn Out</h2>
-                    <p>Exhaustion from overworking or burning out the midnight oil.</p>
-                    <div class="card-footer">
-                        <span>12 comments</span>
-                        <span>0 files</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h2>Mental Health</h2>
-                    <p>Relaxing Illustrations and tips for well-being.</p>
-                    <div class="card-footer">
-                        <span>14 comments</span>
-                        <span>15 files</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h2>Stress</h2>
-                    <p>Stress Management App to guide you through.</p>
-                    <div class="card-footer">
-                        <span>12 comments</span>
-                        <span>15 files</span>
-                    </div>
-                </div>
-            </section>
-        </main>
+
+            
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
