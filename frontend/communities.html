@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Communities</title>
+    <title>MindMend - Communities</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
-    <h1>Communities</h1>
-    <p>Join a community that resonates with you.</p>
-    <p>Here, you can find and join support groups 
-        that connect you with others who share similar 
-        mental health experiences. Whether you are 
-        looking for guidance, a place to share your 
-        journey, or simply a community to bond with, these groups are here for you.</p>
-    <div id="communities-container"></div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <a href="home_logged_in.html">
+                    <img src="/static/images/logo.webp" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="log_emotions.html">Log Emotions</a></li>
+                <li><a href="professional_access.html">Self-Care & Professional Access</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="communities.html">Communities</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="welcome">
+                <h1>Communities</h1>
+                <input type="text" placeholder="Search...">
+            </div>
+
+            <p>Join a community that resonates with you.</p>
+            <p>Here, you can find and join support groups that connect you with others who share similar mental health experiences. Whether you are looking for guidance, a place to share your journey, or simply a community to bond with, these groups are here for you.</p>
+            
+            <div id="communities-container"></div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
 </body>
 </html>
