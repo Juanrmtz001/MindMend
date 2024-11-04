@@ -79,7 +79,7 @@ document.getElementById('login-form')?.addEventListener('submit', async function
 // Log Out Button Handler
 document.getElementById('logout-button')?.addEventListener('click', function() {
     localStorage.removeItem('token');  // Remove token on logout
-    window.location.href = '/static/index.html';  // Redirect to the non-logged-in home page
+    window.location.href = '/';  // Redirect to the non-logged-in home page
 });
 
 
