@@ -128,38 +128,72 @@ function joinCommunity(communityId) {
 
 // For emotions
 // Emotion Log Form Handler
-document.getElementById('emotion-form')?.addEventListener('submit', async function(event) {
-    event.preventDefault();  // Prevent the default form submission behavior
-    localStorage.setItem('token', data.access_token);  // Save the token in localStorage
+// document.getElementById('emotion-form')?.addEventListener('submit', async function(event) {
+//     event.preventDefault();  // Prevent the default form submission behavior
+//     localStorage.setItem('token', data.access_token);  // Save the token in localStorage
 
-    // Collect form data
-    const mood = document.getElementById('mood').value;
-    const stress = document.getElementById('stress').value;
+//     // Collect form data
+//     const mood = document.getElementById('mood').value;
+//     const stress = document.getElementById('stress').value;
 
-    const emotionData = {
-        mood_level: parseInt(mood),
-        stress_level: parseInt(stress)
-    };
+//     const emotionData = {
+//         mood_level: parseInt(mood),
+//         stress_level: parseInt(stress)
+//     };
     
+//     try {
+//         const response = await fetch('/emotion-tracking/', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${localStorage.getItem('token')}`
+//             },
+//             body: JSON.stringify(emotionData)
+//         });
+
+//         if (response.ok) {
+//             const result = await response.json();
+//             alert(`Emotion logged successfully! ID: ${result.id}`);
+//         } else {
+//             const errorData = await response.json();
+//             alert(`Failed to log emotion: ${errorData.detail}`);
+//         }
+//     } catch (error) {
+//         console.error('Error during emotion logging:', error);
+//         alert('An error occurred while logging emotion. Please try again later.');
+//     }
+// });
+
+
+// Function to log emotions
+async function logEmotion(mood, stress) {
     try {
-        const response = await fetch('/emotion-tracking/', {
+        const response = await fetch('/emotion-tracking/emotions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${yourAuthToken}` // Make sure you have the auth token
             },
-            body: JSON.stringify(emotionData)
+            body: JSON.stringify({
+                mood: parseInt(mood),
+                stress: parseInt(stress)
+            })
         });
 
-        if (response.ok) {
-            const result = await response.json();
-            alert(`Emotion logged successfully! ID: ${result.id}`);
-        } else {
-            const errorData = await response.json();
-            alert(`Failed to log emotion: ${errorData.detail}`);
+        if (!response.ok) {
+            const errorData = await response.text();
+            throw new Error(errorData);
         }
+
+        const data = await response.json();
+        return data;
     } catch (error) {
-        console.error('Error during emotion logging:', error);
-        alert('An error occurred while logging emotion. Please try again later.');
+        console.error('Error logging emotion:', error);
+        throw error;
     }
-});
+}
+
+// Example usage
+// logEmotion(7, 4)
+//     .then(response => console.log('Success:', response))
+//     .catch(error => console.error('Error:', error));

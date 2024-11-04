@@ -4,18 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log Emotions</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .error {
+            color: red;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            display: none;
+        }
+        .success {
+            color: green;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Log Your Emotions</h1>
-    <form id="emotion-form" >
-        <label for="mood">Mood (1-10):</label>
-        <input type="number" id="mood" name="mood"  min="1" max="10" required><br>
-        <label for="stress">Stress (1-10):</label>
-        <input type="number" id="stress" name="stress" min="1" max="10" required><br>
+    <div id="error-message" class="error"></div>
+    <div id="success-message" class="success"></div>
+    <form id="emotion-form">
+        <div class="form-group">
+            <label for="mood">Mood (1-10):</label>
+            <input type="number" id="mood" name="mood" min="1" max="10" required>
+        </div>
+        <div class="form-group">
+            <label for="stress">Stress (1-10):</label>
+            <input type="number" id="stress" name="stress" min="1" max="10" required>
+        </div>
         <button type="submit">Log Emotion</button>
     </form>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('emotion-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            const mood = parseInt(document.getElementById('mood').value);
+            const stress = parseInt(document.getElementById('stress').value);
+
+            if (mood < 1 || mood > 10 || stress < 1 || stress > 10) {
+                errorMessage.textContent = 'Mood and stress must be between 1 and 10';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            try {
+                console.log('Sending request to /emotion-tracking/emotions');  // Debug log
+                const response = await fetch('/emotion-tracking/emotions', {  // Updated endpoint
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({
+                        mood: mood,
+                        stress: stress
+                    })
+                });
+
+                console.log('Response status:', response.status);  // Debug log
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || 'Failed to log emotion');
+                }
+
+                const result = await response.json();
+                successMessage.textContent = 'Emotion logged successfully!';
+                successMessage.style.display = 'block';
+                document.getElementById('emotion-form').reset();
+            } catch (error) {
+                console.error('Error:', error);  // Debug log
+                errorMessage.textContent = error.message;
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
