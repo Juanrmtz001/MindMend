@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindMend - Log Emotions</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="container">
@@ -44,10 +45,51 @@
                     <button type="submit">Log Emotion</button>
                 </form>
             </div>
+            <h2>Logged Emotions</h2>
+            <div class="logged-emotions-container">
+                
+            </div>
         </div>
     </div>
     <script src="/static/script.js"></script>
     <script>
+        const token = localStorage.getItem('token');
+        async function fetchLoggedEmotions() {
+            try {
+                const response = await fetch('/emotion-tracking/emotions', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch emotions');
+                }
+
+                const emotions = await response.json();
+                const container = document.querySelector('.logged-emotions-container');
+                container.innerHTML = '';
+
+                if (emotions.length === 0) {
+                    container.innerHTML = '<p class="no-emotions-message">No emotions logged yet.</p>';
+                } else {
+                    emotions.forEach(emotion => {
+                        const emotionCard = document.createElement('div');
+                        emotionCard.className = 'emotion-card';
+                        emotionCard.innerHTML = `
+                            <p>Mood: ${emotion.mood}</p>
+                            <p>Stress: ${emotion.stress}</p>
+                            <p>Date: ${new Date(emotion.date).toLocaleDateString()}</p>
+                        `;
+                        container.appendChild(emotionCard);
+                    });
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
         document.getElementById('emotion-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const errorMessage = document.getElementById('error-message');
@@ -95,6 +137,14 @@
                 errorMessage.style.display = 'block';
             }
         });
+
+        if (!token) {
+            // If no token,show error page
+            window.location.href = '/static/error.html';
+        } else {
+            // Call fetchLoggedEmotions on page load
+            document.addEventListener('DOMContentLoaded', fetchLoggedEmotions);
+        }
     </script>
 </body>
 </html>

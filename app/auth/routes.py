@@ -59,7 +59,8 @@ async def signup(user: User):
     # Prepare user data to store in the database
     user_dict = user.dict()
     user_dict["hashed_password"] = hashed_password
-    del user_dict["password"]  # Remove plaintext password
+    user_dict["name"] = user.name
+    del user_dict["password"]
 
     # Ensure the birthday is in the correct format
     if isinstance(user_dict.get("birthday"), str):

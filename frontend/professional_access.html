@@ -11,7 +11,9 @@
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
             <div class="logo">
-                <img src="/static/images/MindMendLogo.png" alt="MindMend Logo">
+                <a href="home_logged_in.html">
+                    <img src="/static/images/logo.webp" alt="Logo">
+                </a>
             </div>
             <ul class="nav-menu">
                 <li><a href="log_emotions.html">Log Emotions</a></li>
@@ -83,6 +85,15 @@
             </section>
         </main>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                // If no token,show error page
+                window.location.href = '/static/error.html';
+            }
+        });
+    </script>
 </body>
 </html>
 

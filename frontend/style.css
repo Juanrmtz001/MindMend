@@ -299,8 +299,8 @@ body {
 }
 
 .left-section .logo {
-    width: 250px; /* Increased size */
-    height: 250px; /* Increased size */
+    width: 250px;
+    height: 250px;
     margin-bottom: 20px;
 }
 
@@ -321,13 +321,13 @@ body {
 .login-box {
     max-width: 400px;
     width: 100%;
-    text-align: center; /* Center the text inside the box */
+    text-align: center;
 }
 
 .login-box h2 {
     font-size: 32px;
     margin-bottom: 20px;
-    text-align: center; /* Center the Log In title */
+    text-align: center;
 }
 
 .input-group {
@@ -412,7 +412,7 @@ body {
 
 /* General container styling */
 .container {
-   
+    display: flex;
     flex-direction: row;
     height: 100vh;
     overflow: hidden;
@@ -929,6 +929,47 @@ input[type="text"] {
     display: none;
 }
 
+.logged-emotions-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: #eef1fb;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 25vh;
+    margin-top: 20px;
+    overflow-y: auto;
+}
+
+.emotion-card {
+    background: linear-gradient(135deg, #7D53FE, #4A90E2);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.emotion-card h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.emotion-card p {
+    font-size: 1rem;
+    color: #dfe6f0;
+}
+
+.emotion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Settings */
 .settings-container {
     max-width: 800px;
     padding: 20px;
@@ -1009,5 +1050,5 @@ button:hover {
 }
 
 #logout-button:hover{
-    background-color: #5C00B5; /* Adjust to desired hover color */
+    background-color: #5C00B5;
 }
