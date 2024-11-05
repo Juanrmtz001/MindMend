@@ -109,5 +109,14 @@
         </div>
     </div>
     <script src="/static/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                // If no token,show error page
+                window.location.href = '/static/error.html';
+            }
+        });
+    </script>
 </body>
 </html>
