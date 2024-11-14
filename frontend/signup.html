@@ -42,6 +42,15 @@
             </div>
         </div>
     </div>
-    <script src="/static/script.js"></script> <!-- Link to your script file -->
+    <script src="/static/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                // If token, redirect to logged in home page
+                window.location.href = '/static/home_logged_in.html';
+            }
+        });
+    </script>
 </body>
 </html>
