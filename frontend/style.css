@@ -55,8 +55,9 @@ header {
 }
 
 .content {
-    max-width: 50%;
-    background: transparent;
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
 }
 
 .main-title {
