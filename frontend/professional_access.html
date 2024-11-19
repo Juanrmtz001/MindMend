@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Access</title>
+    <title>Self-Care and Professional Access</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,45 +25,134 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="content">
-            <!-- Search Bar -->
-            <section class="search-bar">
-                <input type="text" placeholder="Search..." class="search-input">
-            </section>
+        <div class="main-content">
+            <div class="welcome">
+                <h1>Self-Care Tools & Professional Access</h1>
+                <input type="text" placeholder="Search...">
+            </div>
+            <br>
 
-            <!-- Self Care Strategies Section -->
-            <section class="self-care">
-                <h2>Self Care Strategies</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In enim neque, tempor id...</p>
-                <button class="learn-more">Learn More</button>
-            </section>
+            <!-- Self-Care Techniques Section -->
+        <section class="self-care-section">
+            <h2>Self-Care Techniques</h2>
+            <div class="techniques-container">
+                <!-- Meditation Card -->
+                <div class="technique-card">
+                    <h3>Meditation</h3>
+                    <p>Relax your mind with these steps:</p>
+                    <br>
+                    <ul>
+                        <li><input type="checkbox" id="meditation-1"> Find a quiet place</li>
+                        <li><input type="checkbox" id="meditation-2"> Sit comfortably</li>
+                        <li><input type="checkbox" id="meditation-3"> Focus on your breath</li>
+                        <li><input type="checkbox" id="meditation-4"> Practice for 5-10 minutes</li>
+                    </ul>
+                </div>
 
-            <!-- Suicide Hot-line Section -->
-            <section class="hotline">
-                <h3>Suicide Hot-line:</h3>
-                <div class="hotline-contact">
-                    <img src="/static/images/SH1.png" alt="Phone Icon">
-                    <div class="details">
-                        <p>Hotline Contact 1</p>
-                        <p>Supporting text...</p>
-                    </div>
+                <!-- Breathing Exercises Card -->
+                <div class="technique-card">
+                    <h3>Breathing Exercises</h3>
+                    <p>Improve focus with these steps:</p>
+                    <br>
+                    <ul>
+                        <li><input type="checkbox" id="breathing-1"> Sit comfortably</li>
+                        <li><input type="checkbox" id="breathing-2"> Inhale deeply for 4 seconds</li>
+                        <li><input type="checkbox" id="breathing-3"> Hold your breath for 7 seconds</li>
+                        <li><input type="checkbox" id="breathing-4"> Exhale slowly for 8 seconds</li>
+                    </ul>
                 </div>
-                <div class="hotline-contact">
-                    <img src="/static/images/SH2.png" alt="Phone Icon">
-                    <div class="details">
-                        <p>Hotline Contact 2</p>
-                        <p>Supporting text...</p>
-                    </div>
+
+                <!-- Gratitude Journaling Card -->
+                <div class="technique-card">
+                    <h3>Gratitude Journaling</h3>
+                    <p>Start journaling with these ideas:</p>
+                    <br>
+                    <ul>
+                        <li><input type="checkbox" id="journaling-1"> Write down 3 things you’re grateful for</li>
+                        <li><input type="checkbox" id="journaling-2"> Describe one positive experience</li>
+                        <li><input type="checkbox" id="journaling-3"> Reflect on your accomplishments</li>
+                    </ul>
                 </div>
-            </section>
+
+                <div class="technique-card">
+                    <h3>Exercise</h3>
+                    <p>Boost your physical and mental well-being with these activities:</p>
+                    <br>
+                    <ul>
+                        <li><input type="checkbox" id="exercise-1"> Go for a 30-minute walk</li>
+                        <li><input type="checkbox" id="exercise-2"> Stretch for 10 minutes</li>
+                        <li><input type="checkbox" id="exercise-3"> Try a short workout or yoga session</li>
+                        <li><input type="checkbox" id="exercise-4"> Dance to your favorite music</li>
+                    </ul>
+                </div>
+
+                <div class="technique-card">
+                    <h3>Digital Detox</h3>
+                    <p>Unplug and recharge with these steps:</p>
+                    <br>
+                    <ul>
+                        <li><input type="checkbox" id="detox-1"> Set your phone on silent or airplane mode</li>
+                        <li><input type="checkbox" id="detox-2"> Avoid screens for one hour</li>
+                        <li><input type="checkbox" id="detox-3"> Spend time outdoors or with loved ones</li>
+                        <li><input type="checkbox" id="detox-4"> Read a physical book or write in a journal</li>
+                    </ul>
+                </div>
+                
+                <div class="technique-card">
+                    <h3>Creative Expression</h3>
+                    <p>Engage your creativity with these activities:</p>
+                    <br>
+                    <ul>
+                        <li><input type="checkbox" id="creative-1"> Draw or doodle for 10 minutes</li>
+                        <li><input type="checkbox" id="creative-2"> Write a short poem or story</li>
+                        <li><input type="checkbox" id="creative-3"> Create a playlist of your favorite songs</li>
+                        <li><input type="checkbox" id="creative-4"> Cook a new recipe or bake something</li>
+                    </ul>
+                </div>
+                
+
+            </div>
+        </section>
+        <br>
+        <br>
+
+        <!-- Therapist Access Section -->
+        <section class="therapist-section">
+            <h2>Professional Therapist Access</h2>
+            <div class="therapists-container">
+                <div class="therapist-card">
+                    <h3>Dr. Emily Smith</h3>
+                    <br>
+                    <p>Specializes in anxiety and depression counseling. Available for virtual sessions.</p>
+                    <br>
+                    <button class="button">Schedule a Session</button>
+                </div>
+                <div class="therapist-card">
+                    <h3>Dr. James Carter</h3>
+                    <br>
+                    <p>Expert in cognitive-behavioral therapy (CBT) for stress management and mindfulness.</p>
+                    <br>
+                    <button class="button">Schedule a Session</button>
+                </div>
+                <div class="therapist-card">
+                    <h3>Dr. Lisa Chen</h3>
+                    <br>
+                    <p>Family and relationship therapy expert. Helping individuals and couples achieve harmony.</p>
+                    <br>
+                    <button class="button">Schedule a Session</button>
+                </div>
+            </div>
+        </section>
 
             <!-- Professional Section -->
+            <!-- <br>
+            <h2>Nearby Therapists</h2>
+
             <section class="professional-contacts">
-                <h3>Professional Contacts</h3>
                 <div class="contact-card">
                     <img src="/static/images/Headshot2.png" alt="Jane Doe Profile" class="profile-pic">
                     <div class="contact-info">
-                        <p class="contact-name">Jane Doe</p>
+                        <p class="contact-name">Dr.</p>
                         <p class="contact-category">$$ - 1.1 miles away</p>
                         <p>Supporting text...</p>
                     </div>
@@ -71,6 +160,7 @@
                         ⭐⭐⭐⭐⭐
                     </div>
                 </div>
+
                 <div class="contact-card">
                     <img src="/static/images/Not-Available.png" alt="John Smith Profile" class="profile-pic">
                     <div class="contact-info">
@@ -82,8 +172,9 @@
                         ⭐⭐⭐⭐
                     </div>
                 </div>
-            </section>
-        </main>
+
+
+            </section> -->
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -96,6 +187,7 @@
     </script>
 </body>
 </html>
+
 
 
 

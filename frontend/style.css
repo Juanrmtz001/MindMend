@@ -1053,3 +1053,35 @@ button:hover {
 #logout-button:hover{
     background-color: #5C00B5;
 }
+
+
+.techniques-container, .therapists-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.technique-card, .therapist-card {
+    background-color: #b57af0;
+    color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.technique-card ul, .therapist-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.technique-card ul li {
+    margin-bottom: 10px;
+}
+
+.technique-card input[type="checkbox"] {
+    margin-right: 10px;
+}
+
