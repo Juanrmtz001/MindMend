@@ -33,22 +33,20 @@
                     <div class="groups">
                         <h2>Groups</h2>
                         <div class="group">Group 1 - <span>Hahahaha!</span></div>
-                        <div class="group">Group 2 - <span>Kyu???</span></div>
                         <div class="group">Group 3 - <span>It’s not going to happen</span></div>
                     </div>
                     <div class="professionals">
                         <h2>Professionals</h2>
                         <div class="professional">Dr. Pro - <span>Hey There!</span></div>
-                        <div class="professional">Chuu - <span>Baag</span></div>
                         <div class="professional">Mary - <span>You have to report it...</span></div>
-                        <div class="professional">Victoria - <span>Okay brother, let’s...</span></div>
+                        <div class="professional">Victoria - <span>Okay, let’s talk...</span></div>
                     </div>
             </div>
             <div class="chat-box">
                 <div class="chat-header">
                     <img src="user.jpg" alt="User Avatar">
                     <h3>Dr. Pro</h3>
-                    <span>Online - Last seen, 2:02pm</span>
+                    <span> Online - Last seen, 2:02pm</span>
                 </div>
 
                 <div class="chat-messages" id="chat-messages">
@@ -104,7 +102,7 @@
 
             // Function to simulate a received message
             function receiveMessage() {
-                const responses = ["That's interesting!", "Tell me more!", "I see.", "Could you elaborate?", "Let's discuss."];
+                const responses = ["Tell me more!", "I see.", "Could you elaborate?", "Let's discuss."];
                 const responseText = responses[Math.floor(Math.random() * responses.length)];
 
                 const incomingMessage = document.createElement('p');
