@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindMend</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling for the iframe container */
+        .iframe-container {
+            margin-top: 20px;
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            border: 1px solid #ccc;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo">
                 <a href="home_logged_in.html">
@@ -24,24 +40,30 @@
             </ul>
         </div>
 
+        <!-- Main Content -->
         <div class="main-content">
             <div class="welcome">
                 <h1>Welcome to MindMend</h1>
                 <input type="text" placeholder="Search...">
+                <br>
+                <br>
+                <p>To read an article, click on the link and scroll to the bottom of the page to view.</p>
+                <br>
             </div>
 
-            <div class="container">
+            <!-- Article Columns -->
+            <div class="columns">
                 <!-- Burn Out Column -->
                 <div class="column">
                     <h2>Burn Out</h2>
                     <div class="article-preview">
-                        <h3><a href="https://www.sciencedirect.com/science/article/pii/B9780128009512000443" target="_blank">Burnout</a></h3>
+                        <h3><a href="https://www.sciencedirect.com/science/article/pii/B9780128009512000443" class="external-link">Burnout</a></h3>
                         <p>Burnout is a prolonged response to chronic emotional and interpersonal stressors on the job.</p>
                         <span class="date">June 3, 2016</span>
                     </div>
                     <div class="article-preview">
-                        <h3><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00591/full" target="_blank">Profiles of Burnout, Coping Strategies and Depressive Symptomatology</a></h3>
-                        <p>Burnout syndrome is has been associated with mental health problems such as depression, anxiety, and stress.</p>
+                        <h3><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00591/full" class="external-link">Profiles of Burnout, Coping Strategies and Depressive Symptomatology</a></h3>
+                        <p>Burnout syndrome has been associated with mental health problems such as depression, anxiety, and stress.</p>
                         <span class="date">April 2, 2020</span>
                     </div>
                     <div class="article-preview">
@@ -50,13 +72,12 @@
                         <span class="date">April, 2007</span>
                     </div>
                 </div>
-        
+
                 <!-- Mental Health Column -->
                 <div class="column">
                     <h2>Mental Health</h2>
-                    
                     <div class="article-preview">
-                        <h3><a href="https://www.tandfonline.com/doi/full/10.2147/NDT.S111543" target="_blank">Beliefs and perception about mental health issues: a meta-synthesis</a></h3>
+                        <h3><a href="https://www.tandfonline.com/doi/full/10.2147/NDT.S111543" class="external-link">Beliefs and Perception about Mental Health Issues</a></h3>
                         <p>Mental health literacy is the beliefs and knowledge about mental health issues and their remedies.</p>
                         <span class="date">October 31, 2016</span>
                     </div>
@@ -72,14 +93,14 @@
                         <p>Stress and other mental health issues can negatively impact the health and academic performance of college students.</p>
                         <span class="date">March 12, 2013</span>
                     </div>
+
                 </div>
-        
+
                 <!-- Stress Column -->
                 <div class="column">
                     <h2>Stress</h2>
-                    
                     <div class="article-preview">
-                        <h3><a href="https://books.google.com/books?hl=en&lr=&id=yhkGCAAAQBAJ&oi=fnd&pg=PA1&dq=stress+reduction&ots=vk3fLnB9Dx&sig=XE11Atj5dGoMQdDt8JeZMyALHgc#v=onepage&q&f=false" target="_blank">The Stress Literature: Implications for Prevention and Treatment</a></h3>
+                        <h3><a href="https://books.google.com/books?hl=en&lr=&id=yhkGCAAAQBAJ&oi=fnd&pg=PA1&dq=stress+reduction" class="external-link">The Stress Literature</a></h3>
                         <p>The present book is designed to combine these data with the clinical concerns of dealing with stressed populations.</p>
                         <span class="date">November 11, 2013</span>
                     </div>
@@ -95,18 +116,35 @@
                         <p>Contending with stressful situations in the workplace is a common occurrence for all health care providers. Stress has numerous devastating effects on the workplace environment, as well as upon individuals who become victims of stress.</p>
                         <span class="date">April 28, 2003</span>
                     </div>
+
                 </div>
+            </div>
+
+            <!-- Iframe Section -->
+            <div class="iframe-container">
+                <iframe id="external-content" src="" frameborder="0"></iframe>
             </div>
         </div>
     </div>
-    <script src="/static/script.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Redirect if no token
             const token = localStorage.getItem('token');
             if (!token) {
-                // If no token,show error page
                 window.location.href = '/static/error.html';
             }
+
+            // Handle external link clicks
+            const externalLinks = document.querySelectorAll('.external-link');
+            const iframe = document.getElementById('external-content');
+
+            externalLinks.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault(); // Prevent the default link behavior
+                    iframe.src = link.href; // Load the link in the iframe
+                });
+            });
         });
     </script>
 </body>
