@@ -25,27 +25,103 @@
 
         <div class="main-content">
             <div class="welcome">
-                <h1>Welcome to MindMend</h1>
+                <h1>Messages</h1>
                 <input type="text" placeholder="Search...">
             </div>
 
+            <div class="messages-content">
+                    <div class="groups">
+                        <h2>Groups</h2>
+                        <div class="group">Group 1 - <span>Hahahaha!</span></div>
+                        <div class="group">Group 2 - <span>Kyu???</span></div>
+                        <div class="group">Group 3 - <span>It’s not going to happen</span></div>
+                    </div>
+                    <div class="professionals">
+                        <h2>Professionals</h2>
+                        <div class="professional">Dr. Pro - <span>Hey There!</span></div>
+                        <div class="professional">Chuu - <span>Baag</span></div>
+                        <div class="professional">Mary - <span>You have to report it...</span></div>
+                        <div class="professional">Victoria - <span>Okay brother, let’s...</span></div>
+                    </div>
+            </div>
+            <div class="chat-box">
+                <div class="chat-header">
+                    <img src="user.jpg" alt="User Avatar">
+                    <h3>Dr. Pro</h3>
+                    <span>Online - Last seen, 2:02pm</span>
+                </div>
 
+                <div class="chat-messages" id="chat-messages">
+                    <p class="incoming">Hey There!</p>
+                    <p class="incoming">How are you?</p>
+                    <p class="outgoing">Hello!</p>
+                    <p class="outgoing">I am fine and how are you?</p>
+                    <p class="incoming">I am doing well, Do you have any questions?</p>
+                    <p class="outgoing">Yes!</p>
+                </div>
 
-            
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Type your message here...">
+                    <button id="send-button">Send</button>
+                </div>
+            </div>    
+                
+        </div>
     </div>
-    </div>
-    <script src="script.js"></script>
-
+    <!-- Place script at end of body to ensure elements are loaded first -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const token = localStorage.getItem('token');
             if (!token) {
-                // If no token,show error page
                 window.location.href = '/static/error.html';
             }
+
+            // Chat box functionality
+            const chatMessages = document.getElementById('chat-messages');
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+
+            // Function to send a message
+            function sendMessage() {
+                const messageText = messageInput.value.trim();
+                if (messageText === '') return;
+
+                // Add outgoing message
+                const outgoingMessage = document.createElement('p');
+                outgoingMessage.classList.add('outgoing');
+                outgoingMessage.textContent = messageText;
+                chatMessages.appendChild(outgoingMessage);
+
+                // Clear the input
+                messageInput.value = '';
+
+                // Scroll to the latest message
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Simulate a received message
+                setTimeout(receiveMessage, 1000);
+            }
+
+            // Function to simulate a received message
+            function receiveMessage() {
+                const responses = ["That's interesting!", "Tell me more!", "I see.", "Could you elaborate?", "Let's discuss."];
+                const responseText = responses[Math.floor(Math.random() * responses.length)];
+
+                const incomingMessage = document.createElement('p');
+                incomingMessage.classList.add('incoming');
+                incomingMessage.textContent = responseText;
+                chatMessages.appendChild(incomingMessage);
+
+                // Scroll to the latest message
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Send message on button click or pressing Enter
+            sendButton.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') sendMessage();
+            });
         });
     </script>
 </body>
 </html>
-
-
